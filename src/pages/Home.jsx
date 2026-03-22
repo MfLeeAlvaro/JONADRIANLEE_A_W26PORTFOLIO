@@ -118,8 +118,7 @@ export function Home() {
               <Card className="h-full">
                 <h2 className="font-display text-xl font-bold text-mist">Video demo</h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted">
-                  Course or capstone walkthrough. Set <span className="code-inline">videoDemoUrl</span> in{' '}
-                  <span className="code-inline">personal.js</span> when your recording is hosted.
+                  Screen walkthrough of this portfolio and project highlights (hosted on YouTube).
                 </p>
                 <a
                   href={personal.videoDemoUrl}

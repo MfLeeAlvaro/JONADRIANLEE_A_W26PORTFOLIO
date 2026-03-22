@@ -12,7 +12,7 @@ export const personal = {
   /** This site’s repository — Home “source code” card */
   githubPortfolioRepoUrl: 'https://github.com/MfLeeAlvaro/JONADRIANLEE_A_W26PORTFOLIO',
   linkedinUrl: 'https://www.linkedin.com/in/dr-huge-768511339/',
-  videoDemoUrl: '#', // Set to your YouTube, Loom, etc. when ready
+  videoDemoUrl: 'https://youtu.be/UfKGkkIIE6w',
   /** Static files under public/ */
   assets: {
     profilePhoto: '/assets/images/profile-photo.png',
