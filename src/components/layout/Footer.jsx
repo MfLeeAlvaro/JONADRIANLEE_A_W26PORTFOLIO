@@ -1,25 +1,27 @@
 import { Link } from 'react-router-dom'
 import { navLinks } from '../../data/navigation'
 import { personal } from '../../data/personal'
-
 export function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="mt-auto border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/50">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+    <footer className="relative z-10 mt-auto border-t border-line/50 bg-surface/95">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           <div>
-            <p className="font-display text-lg font-semibold text-slate-900 dark:text-white">{personal.name}</p>
-            <p className="mt-2 max-w-xs text-sm text-slate-600 dark:text-slate-400">
-              Academic portfolio for coursework — Computer Programming student, George Brown College.
+            <p className="font-display text-lg font-bold tracking-tight text-mist">{personal.name}</p>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
+              Computer Programming · George Brown College. Code, games, and sound—built with intent.
             </p>
           </div>
           <div>
-            <p className="text-sm font-semibold text-slate-900 dark:text-white">Navigate</p>
-            <ul className="mt-3 grid gap-2 text-sm text-slate-600 dark:text-slate-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-300/70">Navigate</p>
+            <ul className="mt-4 grid gap-2 text-sm text-muted">
               {navLinks.slice(0, 6).map((l) => (
                 <li key={l.path}>
-                  <Link to={l.path} className="hover:text-sky-600 dark:hover:text-sky-400">
+                  <Link
+                    to={l.path}
+                    className="text-muted underline-offset-2 transition hover:text-rose-200 hover:underline"
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -27,30 +29,42 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-slate-900 dark:text-white">Contact</p>
-            <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-300/70">Contact</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted">
               <li>
-                <a href={`mailto:${personal.email}`} className="hover:text-sky-600 dark:hover:text-sky-400">
+                <a
+                  href={`mailto:${personal.email}`}
+                  className="text-muted underline-offset-2 transition hover:text-rose-200 hover:underline"
+                >
                   {personal.email}
                 </a>
               </li>
               <li>{personal.phone}</li>
               <li>{personal.location}</li>
-              <li>
+              <li className="pt-1">
                 <a
                   href={personal.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-sky-600 dark:hover:text-sky-400"
+                  className="text-muted underline-offset-2 transition hover:text-rose-200 hover:underline"
                 >
                   GitHub
+                </a>
+                <span className="mx-2 text-line">·</span>
+                <a
+                  href={personal.linkedinUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-muted underline-offset-2 transition hover:text-rose-200 hover:underline"
+                >
+                  LinkedIn
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <p className="mt-10 border-t border-slate-200 pt-6 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500">
-          © {year} {personal.name}. Submitted for academic portfolio requirements.
+        <p className="mt-12 border-t border-line/40 pt-8 text-center text-xs text-dim">
+          © {year} {personal.name}. Academic portfolio submission.
         </p>
       </div>
     </footer>

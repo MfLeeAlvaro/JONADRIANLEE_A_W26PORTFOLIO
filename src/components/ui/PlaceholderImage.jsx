@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 /**
- * Shows project/profile image when file exists; falls back to a labeled gradient.
+ * Project/profile image, or moody gradient fallback.
  */
 export function PlaceholderImage({ src, alt, label, aspect = 'video', className = '' }) {
   const [failed, setFailed] = useState(false)
@@ -10,13 +10,11 @@ export function PlaceholderImage({ src, alt, label, aspect = 'video', className 
   if (!src || failed) {
     return (
       <div
-        className={`flex w-full items-center justify-center rounded-xl bg-gradient-to-br from-slate-200 to-slate-300 text-center dark:from-slate-700 dark:to-slate-800 ${aspectClass} ${className}`}
+        className={`flex w-full items-center justify-center bg-gradient-to-br from-panel via-void to-elevated text-center ring-1 ring-inset ring-rose-950/40 ${aspectClass} ${className}`}
         role="img"
-        aria-label={alt || label || 'Placeholder image'}
+        aria-label={alt || label || 'Image area'}
       >
-        <span className="max-w-[80%] px-4 text-sm font-medium text-slate-600 dark:text-slate-300">
-          {label || 'Image placeholder — add file to public folder'}
-        </span>
+        <span className="max-w-[85%] px-4 text-sm font-medium leading-snug text-muted">{label || 'Add image to public/assets'}</span>
       </div>
     )
   }
@@ -25,7 +23,7 @@ export function PlaceholderImage({ src, alt, label, aspect = 'video', className 
     <img
       src={src}
       alt={alt || label || ''}
-      className={`w-full rounded-xl object-cover ${aspectClass} ${className}`}
+      className={`h-full w-full object-cover ${aspectClass} ${className}`}
       onError={() => setFailed(true)}
     />
   )

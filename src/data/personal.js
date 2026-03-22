@@ -7,17 +7,32 @@ export const personal = {
   location: 'North York, Ontario',
   phone: '(647) 985-7073',
   email: 'jonadrianlee2004@gmail.com',
-  githubUrl: 'https://github.com/MfLeeAlvaro/JONADRIANLEE_A_W26PORTFOLIO',
-  linkedinUrl: 'https://www.linkedin.com/in/your-profile',
-  videoDemoUrl: '#', // Replace with YouTube, Loom, or hosted demo URL
-  /** Placeholder asset paths (add files under public/) */
+  /** Public profile — Contact, Footer, Resume */
+  githubUrl: 'https://github.com/MfLeeAlvaro',
+  /** This site’s repository — Home “source code” card */
+  githubPortfolioRepoUrl: 'https://github.com/MfLeeAlvaro/JONADRIANLEE_A_W26PORTFOLIO',
+  linkedinUrl: 'https://www.linkedin.com/in/dr-huge-768511339/',
+  videoDemoUrl: '#', // Set to your YouTube, Loom, etc. when ready
+  /** Static files under public/ */
   assets: {
-    profilePhoto: '/assets/images/profile-photo.jpg',
-    resumePdf: '/assets/documents/resume.pdf',
+    profilePhoto: '/assets/images/profile-photo.png',
+    resumePdf: '/assets/documents/Resume.docx.pdf',
     transcriptPdf: '/assets/documents/transcript.pdf',
     certificateFolder: '/assets/documents/certificates/',
   },
+  /** Home hero — edit anytime */
+  heroLines: ['Computer Programming Student', 'Aspiring Software Developer'],
+  heroFocusLine: 'Building interactive systems, apps, and digital experiences.',
+  heroTagline:
+    'Calm under pressure, curious by default—I shape code the way I shape soundtracks: with patience, contrast, and intent. Software, games, and late-night builds are how I learn.',
 }
+
+export const aboutTraits = [
+  'Software & game development',
+  'Music & creative workflow',
+  'Intentional, atmospheric design',
+  'Team communication & adaptability',
+]
 
 export const professionalSummary =
   'Motivated and detail-oriented individual with experience in customer service and a strong foundation in computer programming. Proven ability to communicate effectively, solve problems, and adapt to fast-paced environments. Currently pursuing a degree in Computer Programming to further develop technical and analytical skills.'
@@ -44,7 +59,7 @@ Dear Hiring Manager,
 
 I am writing to express my interest in a Junior Software Developer / Developer Intern role. I am currently completing a Computer Programming diploma at George Brown College (expected April 2026), where I have built a strong foundation in programming fundamentals, problem-solving, and software development practices using languages such as Python, Java, and C++.
 
-Alongside my coursework, I have developed portfolio projects that span mobile development, database-driven applications, and exploratory work in machine learning and game development. These projects helped me practice translating requirements into features, iterating based on feedback, and communicating technical progress in a clear, organized way.
+Alongside my coursework, I have developed portfolio projects that span mobile development, ASP.NET Core web apps with PostgreSQL, Java game AI (Minimax), and Roblox game development. These projects helped me practice translating requirements into features, iterating based on feedback, and communicating technical progress in a clear, organized way.
 
 In addition to my technical studies, I have over two years of experience as a Customer Service Representative and Cashier at McDonald's. In that role, I consistently delivered positive customer experiences, processed transactions accurately, collaborated with teammates in a high-volume environment, and adapted quickly to new procedures. Those experiences strengthened skills that transfer directly to software teams: communication, accountability, time management, and staying detail-oriented under pressure.
 
@@ -59,7 +74,7 @@ export const highlights = [
   'George Brown College — Computer Programming (2023–2026, expected)',
   'Hands-on coursework in Python, Java, C++, and software development lifecycle topics',
   'Customer service experience with strong communication and teamwork',
-  'Portfolio projects: mobile apps, management systems, ML exploration, and game development',
+  'Portfolio projects: mobile apps, ASP.NET inventory systems, Java/AI games, and Roblox development',
 ]
 
 export const languages = ['English', 'Tagalog']

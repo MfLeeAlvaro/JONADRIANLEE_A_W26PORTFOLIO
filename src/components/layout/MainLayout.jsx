@@ -5,10 +5,12 @@ import { ScrollToTop } from './ScrollToTop'
 
 export function MainLayout() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="relative flex min-h-screen flex-col bg-void text-mist">
+      <div className="atmosphere atmosphere-vignette" aria-hidden />
+      <div className="atmosphere atmosphere-grain" aria-hidden />
       <ScrollToTop />
       <Navbar />
-      <main className="flex-1">
+      <main className="relative z-10 isolate flex-1">
         <Outlet />
       </main>
       <Footer />

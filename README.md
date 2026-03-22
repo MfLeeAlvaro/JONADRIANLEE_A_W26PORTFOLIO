@@ -2,6 +2,14 @@
 
 React + Vite + Tailwind CSS portfolio for a college programming assignment. Content is driven by files under `src/data/` for easy editing.
 
+### Visual design (emo-alt / cinematic dark)
+
+- **Palette:** Near-black void (`#050508`), charcoal surfaces, rose/crimson accents, occasional violet glows—high contrast, not neon.
+- **Typography:** [Syne](https://fonts.google.com/specimen/Syne) (display) + [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) (body), loaded in `index.html`.
+- **Atmosphere:** Fixed vignette + SVG noise grain (`src/index.css`), faint crimson grid on hero, soft radial blurs.
+- **Motion:** CSS keyframes (drift, pulse, fade-up), `Reveal` scroll-in (`src/components/ui/Reveal.jsx`), `prefers-reduced-motion` respected.
+- **No new animation libraries** — only Tailwind + custom CSS.
+
 ## Run locally
 
 ```bash
@@ -29,7 +37,7 @@ JonAdrianLee_A_W26Portfolio/
 │   │   │   ├── projects/          # project screenshots
 │   │   │   └── capstone/          # wireframes, style tiles
 │   │   └── documents/
-│   │       ├── resume.pdf
+│   │       ├── Resume.docx.pdf   # or resume.pdf — path in personal.js
 │   │       ├── transcript.pdf
 │   │       └── certificates/
 │   └── favicon.svg
@@ -98,7 +106,7 @@ GitHub Pages serves from a subpath like `https://username.github.io/repo-name/`,
 | `/cover-letter` | Sample cover letter                           |
 | `/career`       | Career goal / philosophy                      |
 | `/credentials`  | Education, coursework, transcript, certs      |
-| `/projects`     | Five academic project cards                   |
+| `/projects`     | Academic project cards (GameBoxd, inventory, Gomoku, Roblox) |
 | `/capstone`     | Featured GameBoxd capstone narrative          |
 | `/experience`   | Work + volunteer + transferable skills        |
 | `/contact`      | Email, phone, GitHub/LinkedIn, contact form   |

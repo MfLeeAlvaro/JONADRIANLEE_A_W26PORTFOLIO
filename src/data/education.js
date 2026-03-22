@@ -32,18 +32,21 @@ export const education = [
   },
 ]
 
-/** Placeholder entries — replace with real certificate names and file paths */
-export const certificatesPlaceholder = [
+/** Certificates & awards — PDF or image in public/assets/documents/certificates/ */
+export const certificates = [
   {
-    title: 'Certificate or award title',
-    issuer: 'Organization name',
-    year: 'YYYY',
-    file: '/assets/documents/certificates/certificate-placeholder.pdf',
+    title: 'High school diploma pathway — Certificate of Excellence (Honours, Grade 10)',
+    issuer: 'James Cardinal McGuigan Catholic Secondary School (TCDSB)',
+    year: 'June 2020',
+    detail:
+      'Ontario secondary school recognition: Honours in Grade 10. Part of the pathway toward high school graduation / diploma.',
+    file: '/assets/documents/certificates/mcguigan-honours-grade10-2020.png',
   },
   {
-    title: 'Second certificate (optional)',
-    issuer: 'Organization name',
-    year: 'YYYY',
-    file: '/assets/documents/certificates/certificate-2-placeholder.pdf',
+    title: 'Certificate of Achievement — Tutor Training 1',
+    issuer: 'Licensed to Learn (L2L)',
+    year: 'May 2018',
+    detail: 'Successful completion of the L2L tutor training program.',
+    file: '/assets/documents/certificates/l2l-tutor-training-1-2018.png',
   },
 ]

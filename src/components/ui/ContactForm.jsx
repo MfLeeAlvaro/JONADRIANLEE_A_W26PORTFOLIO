@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Button } from './Button'
 
+const field =
+  'mt-2 w-full rounded-xl border border-line bg-void/60 px-4 py-3 text-mist placeholder:text-dim shadow-inner shadow-black/20 transition focus:border-rose-500/40 focus:outline-none focus:ring-2 focus:ring-rose-500/20'
+
 /**
- * UI-only contact form for portfolio demonstration.
- * Wire to EmailJS, Formspree, or a backend when you are ready.
+ * Demo form UI — connect EmailJS / Formspree / backend when ready.
  */
 export function ContactForm() {
   const [sent, setSent] = useState(false)
@@ -14,47 +16,40 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block text-left text-sm font-medium text-slate-700 dark:text-slate-300">
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid gap-5 sm:grid-cols-2">
+        <label className="block text-left text-sm font-medium text-muted">
           Name
-          <input
-            required
-            type="text"
-            name="name"
-            className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/30 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
-            placeholder="Your name"
-          />
+          <input required type="text" name="name" className={field} placeholder="Your name" autoComplete="name" />
         </label>
-        <label className="block text-left text-sm font-medium text-slate-700 dark:text-slate-300">
+        <label className="block text-left text-sm font-medium text-muted">
           Email
           <input
             required
             type="email"
             name="email"
-            className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/30 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
+            className={field}
             placeholder="you@example.com"
+            autoComplete="email"
           />
         </label>
       </div>
-      <label className="block text-left text-sm font-medium text-slate-700 dark:text-slate-300">
+      <label className="block text-left text-sm font-medium text-muted">
         Message
         <textarea
           required
           name="message"
           rows={4}
-          className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/30 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
-          placeholder="Brief message — for assignment demo this form does not send email yet."
+          className={field}
+          placeholder="Say hello — this demo doesn’t send mail until you wire a handler."
         />
       </label>
       <div className="flex flex-wrap items-center gap-4">
         <Button type="submit" variant="primary">
-          Send message (demo)
+          Send message
         </Button>
         {sent ? (
-          <p className="text-sm text-emerald-600 dark:text-emerald-400">
-            Thanks — this demo captured your click. Connect a form backend to deliver messages.
-          </p>
+          <p className="text-sm text-rose-200/90">Noted — hook this form to a service to deliver messages.</p>
         ) : null}
       </div>
     </form>

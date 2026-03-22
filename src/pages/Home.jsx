@@ -1,114 +1,165 @@
 import { Link } from 'react-router-dom'
 import { Button } from '../components/ui/Button'
 import { Card } from '../components/ui/Card'
+import { Reveal } from '../components/ui/Reveal'
+import { SectionDivider } from '../components/ui/SectionDivider'
 import { personal, highlights, professionalSummary } from '../data/personal'
 
 export function Home() {
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white dark:border-slate-800 dark:from-slate-900 dark:to-slate-950">
+      {/* Cinematic hero */}
+      <section className="relative min-h-[88vh] overflow-hidden border-b border-line/40">
+        <div className="bg-grid-faint absolute inset-0 opacity-60" aria-hidden />
         <div
-          className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-25"
+          className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-rose-600/15 blur-[100px] animate-pulse-soft"
           aria-hidden
-          style={{
-            backgroundImage:
-              'radial-gradient(circle at 20% 20%, rgba(14,165,233,0.25), transparent 40%), radial-gradient(circle at 80% 0%, rgba(15,23,42,0.2), transparent 35%)',
-          }}
         />
-        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:py-32">
-          <p className="animate-fade-up font-display text-sm font-semibold uppercase tracking-[0.25em] text-sky-600 dark:text-sky-400">
-            Academic portfolio
-          </p>
-          <h1 className="animate-fade-up animation-delay-100 mt-4 font-display text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
-            {personal.name}
-          </h1>
-          <p className="animate-fade-up animation-delay-200 mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300 sm:text-xl">
-            {personal.title}
-          </p>
-          <p className="animate-fade-up animation-delay-300 mt-6 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
-            {professionalSummary}
-          </p>
-          <div className="animate-fade-up animation-delay-300 mt-10 flex flex-wrap gap-4">
-            <Button as={Link} to="/projects" variant="primary">
-              View projects
-            </Button>
-            <Button as={Link} to="/resume" variant="secondary">
-              Resume
-            </Button>
-            <Button as={Link} to="/contact" variant="ghost">
-              Contact
-            </Button>
+        <div
+          className="pointer-events-none absolute -right-24 bottom-0 h-[28rem] w-[28rem] rounded-full bg-violet-600/10 blur-[120px] animate-drift"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute left-1/3 top-0 h-64 w-64 rounded-full bg-rose-950/30 blur-[80px] animate-drift-slow"
+          aria-hidden
+        />
+
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:min-h-[88vh] lg:flex-row lg:items-center lg:gap-16 lg:py-28">
+          <Reveal className="flex shrink-0 justify-center lg:justify-start">
+            <div className="relative">
+              <div
+                className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-rose-500/30 via-transparent to-violet-600/20 opacity-80 blur-sm"
+                aria-hidden
+              />
+              <img
+                src={personal.assets.profilePhoto}
+                alt={`${personal.name} — profile photo`}
+                width={200}
+                height={200}
+                className="relative h-44 w-44 rounded-2xl border border-line object-cover shadow-2xl shadow-black/60 ring-2 ring-rose-950/50 sm:h-48 sm:w-48"
+              />
+            </div>
+          </Reveal>
+
+          <div className="min-w-0 flex-1 text-left">
+            <p className="animate-fade-up font-display text-[0.7rem] font-semibold uppercase tracking-[0.4em] text-rose-300/75">
+              Academic portfolio · Developer in progress
+            </p>
+            <h1 className="animate-fade-up animation-delay-100 mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-mist sm:text-5xl lg:text-6xl">
+              {personal.name}
+            </h1>
+            <div className="animate-fade-up animation-delay-200 mt-5 space-y-1.5">
+              {personal.heroLines.map((line) => (
+                <p key={line} className="font-display text-lg font-semibold text-rose-100/90 sm:text-xl">
+                  {line}
+                </p>
+              ))}
+            </div>
+            <p className="animate-fade-up animation-delay-300 mt-5 max-w-xl font-display text-base font-medium leading-snug text-muted sm:text-lg">
+              {personal.heroFocusLine}
+            </p>
+            <p className="animate-fade-up animation-delay-400 mt-6 max-w-2xl border-l-2 border-rose-800/60 pl-5 text-sm leading-relaxed text-muted sm:text-base">
+              {personal.heroTagline}
+            </p>
+            <p className="animate-fade-up animation-delay-400 mt-6 max-w-2xl text-sm leading-relaxed text-dim sm:text-[0.95rem]">
+              {professionalSummary}
+            </p>
+            <div className="animate-fade-up animation-delay-400 mt-10 flex flex-wrap gap-4">
+              <Button as={Link} to="/projects" variant="primary">
+                View projects
+              </Button>
+              <Button as={Link} to="/resume" variant="secondary">
+                Resume
+              </Button>
+              <Button as={Link} to="/contact" variant="ghost">
+                Contact
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
+      <SectionDivider className="my-0 py-px" />
+
       {/* Highlights */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white">Highlights</h2>
-        <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
-          A quick snapshot of my academic focus, technical foundation, and work experience.
-        </p>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <Reveal>
+          <h2 className="font-display text-2xl font-bold tracking-tight text-mist sm:text-3xl">Highlights</h2>
+          <p className="mt-3 max-w-2xl text-muted">Academic focus, technical foundation, and real-world customer experience.</p>
+        </Reveal>
+        <ul className="mt-10 grid gap-5 sm:grid-cols-2">
           {highlights.map((item, i) => (
             <li key={i}>
-              <Card hover className="h-full text-left">
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-100 text-sky-700 dark:bg-sky-950/60 dark:text-sky-300">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-                    <path
-                      d="M5 13l4 4L19 7"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-                <p className="mt-3 text-sm leading-relaxed text-slate-700 dark:text-slate-300">{item}</p>
-              </Card>
+              <Reveal delay={i * 60}>
+                <Card hover className="h-full text-left">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-rose-500/20 bg-rose-950/35 text-rose-200">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <path
+                        d="M5 13l4 4L19 7"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  <p className="mt-4 text-sm leading-relaxed text-muted">{item}</p>
+                </Card>
+              </Reveal>
             </li>
           ))}
         </ul>
       </section>
 
-      {/* Video demo + GitHub — assignment-ready placeholders */}
-      <section id="video-demo" className="border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/40">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <section className="border-y border-line/40 bg-surface/50">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <div className="grid gap-8 lg:grid-cols-2">
-            <Card>
-              <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">Video demo</h2>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                Add a hosted walkthrough (screen recording, presentation, or capstone demo). Replace the link below when
-                your video is ready.
-              </p>
-              <a
-                href={personal.videoDemoUrl}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-600 hover:text-sky-500 dark:text-sky-400"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open video link (placeholder)
-                <span aria-hidden>→</span>
-              </a>
-            </Card>
-            <Card>
-              <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">
-                Source code / GitHub repository
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                Central place for recruiters and instructors to review code. Update the URL when your public profile or
-                portfolio repo is published.
-              </p>
-              <a
-                href={personal.githubUrl}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-600 hover:text-sky-500 dark:text-sky-400"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Visit GitHub (placeholder)
-                <span aria-hidden>→</span>
-              </a>
-            </Card>
+            <Reveal>
+              <Card className="h-full">
+                <h2 className="font-display text-xl font-bold text-mist">Video demo</h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Course or capstone walkthrough. Set <span className="code-inline">videoDemoUrl</span> in{' '}
+                  <span className="code-inline">personal.js</span> when your recording is hosted.
+                </p>
+                <a
+                  href={personal.videoDemoUrl}
+                  className="prose-link mt-6 inline-flex items-center gap-2 text-sm font-semibold"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch video demo
+                  <span aria-hidden>→</span>
+                </a>
+              </Card>
+            </Reveal>
+            <Reveal delay={80}>
+              <Card className="h-full">
+                <h2 className="font-display text-xl font-bold text-mist">Source & repositories</h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  This portfolio’s codebase, plus my wider work on GitHub.
+                </p>
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <a
+                    href={personal.githubPortfolioRepoUrl}
+                    className="prose-link inline-flex items-center gap-2 text-sm font-semibold"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Portfolio repository
+                    <span aria-hidden>→</span>
+                  </a>
+                  <a
+                    href={personal.githubUrl}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-rose-200"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub profile
+                    <span aria-hidden>→</span>
+                  </a>
+                </div>
+              </Card>
+            </Reveal>
           </div>
         </div>
       </section>
