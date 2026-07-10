@@ -1,13 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { MainLayout } from './components/layout/MainLayout'
 import { Home } from './pages/Home'
 import { About } from './pages/About'
 import { ResumePage } from './pages/ResumePage'
-import { CoverLetter } from './pages/CoverLetter'
-import { Career } from './pages/Career'
-import { Credentials } from './pages/Credentials'
 import { Projects } from './pages/Projects'
-import { Capstone } from './pages/Capstone'
 import { Experience } from './pages/Experience'
 import { Contact } from './pages/Contact'
 
@@ -17,15 +13,17 @@ export default function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/experience" element={<Experience />} />
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<ResumePage />} />
-          <Route path="/cover-letter" element={<CoverLetter />} />
-          <Route path="/career" element={<Career />} />
-          <Route path="/credentials" element={<Credentials />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/capstone" element={<Capstone />} />
-          <Route path="/experience" element={<Experience />} />
           <Route path="/contact" element={<Contact />} />
+          {/* Legacy routes → keep bookmarks from breaking */}
+          <Route path="/capstone" element={<Navigate to="/projects" replace />} />
+          <Route path="/cover-letter" element={<Navigate to="/contact" replace />} />
+          <Route path="/career" element={<Navigate to="/about" replace />} />
+          <Route path="/credentials" element={<Navigate to="/about" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </BrowserRouter>

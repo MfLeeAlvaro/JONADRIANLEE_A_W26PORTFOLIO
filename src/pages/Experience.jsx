@@ -1,84 +1,118 @@
-import { SectionHeading } from '../components/ui/SectionHeading'
+import { PageHeader } from '../components/ui/PageHeader'
+import { ExperienceItem } from '../components/ui/ExperienceItem'
 import { Card } from '../components/ui/Card'
+import { Button } from '../components/ui/Button'
 import { Reveal } from '../components/ui/Reveal'
-import { professionalSummary } from '../data/personal'
-import { workExperience, volunteerExperience, transferableSkills } from '../data/experience'
+import { Seo } from '../components/ui/Seo'
+import { technicalExperience, workExperience, volunteerExperience } from '../data/experience'
+import { education, additionalCredentials } from '../data/education'
 
 export function Experience() {
+  const diploma = education[0]
+  const diplomaCredential = additionalCredentials[0]
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <SectionHeading
-        eyebrow="Professional summary"
-        title="Experience & impact"
-        subtitle="Service industry depth translated into how I’ll show up on a dev team: clear, fast, collaborative."
+    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
+      <Seo
+        title="Experience"
+        description="Education, development projects, and professional experience — George Brown College diploma, warehouse operations, customer service, and portfolio software work."
+      />
+      <PageHeader
+        eyebrow="Background"
+        title="Experience"
+        subtitle="Relevant development work, education, then employment that demonstrates reliability, accuracy, and teamwork."
       />
 
-      <Reveal>
-        <Card className="mb-12 border-rose-900/20 text-left ring-1 ring-inset ring-rose-950/20">
-          <h2 className="font-display text-lg font-bold text-mist">Professional summary</h2>
-          <p className="mt-4 leading-relaxed text-muted md:text-[1.05rem]">{professionalSummary}</p>
-        </Card>
-      </Reveal>
+      <section>
+        <Reveal>
+          <h2 className="font-display text-xl font-bold text-mist">Relevant Development Experience</h2>
+          <p className="mt-2 max-w-prose text-sm text-muted">
+            Substantial academic and personal projects treated as hands-on development experience.
+          </p>
+        </Reveal>
+        <div className="mt-6 space-y-4">
+          {technicalExperience.map((item, i) => (
+            <Reveal key={item.id} delay={i * 40}>
+              <ExperienceItem item={item} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
-      <Reveal>
-        <h2 className="mb-6 font-display text-xl font-bold text-mist">Transferable strengths</h2>
-      </Reveal>
-      <div className="mb-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {transferableSkills.map((s, i) => (
-          <Reveal key={s.title} delay={i * 50}>
-            <Card hover className="h-full text-left">
-              <h3 className="font-display text-base font-bold text-mist">{s.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{s.description}</p>
+      <section className="mt-14">
+        <Reveal>
+          <h2 className="font-display text-xl font-bold text-mist">Education</h2>
+        </Reveal>
+        <div className="mt-6 space-y-4">
+          <Reveal>
+            <Card>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 className="font-display text-lg font-bold text-mist">{diploma.institution}</h3>
+                  <p className="mt-1 text-sm text-muted">
+                    {diploma.program} {diploma.credential}
+                    {diploma.statusNote ? ` (${diploma.statusNote})` : ''}
+                  </p>
+                  <p className="mt-1 text-sm text-dim">
+                    {diploma.start} – {diploma.end}
+                    {diploma.location ? ` · ${diploma.location}` : ''}
+                  </p>
+                  {diploma.highlights?.length ? (
+                    <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted marker:text-rose-600/50">
+                      {diploma.highlights.map((h) => (
+                        <li key={h}>{h}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {diplomaCredential ? (
+                    <p className="mt-4 text-sm text-dim">
+                      {diplomaCredential.title} · {diplomaCredential.year}
+                    </p>
+                  ) : null}
+                </div>
+                {diplomaCredential?.file ? (
+                  <Button
+                    as="a"
+                    href={diplomaCredential.file}
+                    variant="secondary"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="shrink-0 self-start"
+                  >
+                    View Diploma
+                  </Button>
+                ) : null}
+              </div>
             </Card>
           </Reveal>
-        ))}
-      </div>
+        </div>
+      </section>
 
-      <Reveal>
-        <Card className="mb-12 text-left">
-          <h2 className="font-display text-xl font-bold text-mist">Work experience</h2>
-          <ul className="mt-8 space-y-12">
-            {workExperience.map((job) => (
-              <li key={job.id} className="relative border-l border-rose-900/35 pl-8">
-                <span
-                  className="absolute -left-1.5 top-1 h-3 w-3 rounded-full bg-gradient-to-br from-rose-500 to-rose-800 ring-4 ring-void"
-                  aria-hidden
-                />
-                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                  <div>
-                    <p className="font-display text-lg font-bold text-mist">{job.role}</p>
-                    <p className="text-muted">{job.company}</p>
-                    <p className="text-sm text-dim">{job.location}</p>
-                  </div>
-                  <p className="text-sm font-medium text-rose-300/85">
-                    {job.start} — {job.end}
-                  </p>
-                </div>
-                <ul className="mt-4 list-disc space-y-2 pl-4 text-sm text-muted marker:text-rose-600/50">
-                  {job.bullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </Card>
-      </Reveal>
+      <section className="mt-14">
+        <Reveal>
+          <h2 className="font-display text-xl font-bold text-mist">Employment</h2>
+        </Reveal>
+        <div className="mt-6 space-y-4">
+          {workExperience.map((item, i) => (
+            <Reveal key={item.id} delay={i * 40}>
+              <ExperienceItem item={item} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
-      <Reveal delay={80}>
-        <Card className="text-left">
-          <h2 className="font-display text-xl font-bold text-mist">Volunteer experience</h2>
-          <ul className="mt-8 space-y-8">
-            {volunteerExperience.map((v) => (
-              <li key={v.id} className="border-b border-line/40 pb-8 last:border-0 last:pb-0">
-                <p className="font-display font-semibold text-mist">{v.role}</p>
-                <p className="text-sm text-rose-300/75">{v.organization}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{v.summary}</p>
-              </li>
-            ))}
-          </ul>
-        </Card>
-      </Reveal>
+      <section className="mt-14">
+        <Reveal>
+          <h2 className="font-display text-xl font-bold text-mist">Volunteer</h2>
+        </Reveal>
+        <div className="mt-6 space-y-4">
+          {volunteerExperience.map((item, i) => (
+            <Reveal key={item.id} delay={i * 40}>
+              <ExperienceItem item={item} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

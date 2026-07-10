@@ -2,11 +2,9 @@
 
 Place static files here so they are copied to the site root.
 
-- `images/profile-photo.png` — headshot (Home hero + About page)  
-- `images/projects/` — project screenshots (GameBoxd + `roblox-train-ur-troops.png`, etc.)  
-- `images/capstone/*` — optional extra capstone-only assets  
-- `documents/Resume.docx.pdf` (or any name — set `resumePdf` in `src/data/personal.js`)  
-- `documents/transcript.pdf` — transcript (if allowed)  
-- `documents/certificates/` — certificate images or PDFs (listed in `src/data/education.js` → `certificates`)
+- `images/profile-photo.png` — headshot (Home + About)
+- `images/projects/` — project screenshots referenced in `src/data/projects.js`
+- `documents/Jon_Adrian_Alvaro_Resume.pdf` — resume (`personal.assets.resumePdf`)
+- `documents/certificates/` — optional credential PDFs listed in `src/data/education.js` → `additionalCredentials`
 
-Paths referenced in `src/data/personal.js`, `projects.js`, and `education.js` match this layout.
+Do not link transcripts or unrelated certificates from the public site.

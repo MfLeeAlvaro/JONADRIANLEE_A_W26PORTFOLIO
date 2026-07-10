@@ -1,17 +1,73 @@
 export const workExperience = [
   {
+    id: 'apple-express',
+    role: 'Warehouse Associate',
+    company: 'Apple Express',
+    location: 'Toronto, ON',
+    start: 'April 2025',
+    end: 'Present',
+    bullets: [
+      'Receive, sort, scan, and organize shipments to support accurate warehouse operations',
+      'Prepare packages for dispatch while following procedures, safety guidelines, and productivity targets',
+      'Maintain a clean, orderly work area to improve workflow and reduce errors',
+      'Collaborate with supervisors and coworkers to meet daily deadlines in a fast-paced environment',
+    ],
+  },
+  {
     id: 'mcd',
     role: 'Customer Service Representative / Cashier',
     company: "McDonald's",
-    location: '3929 Keele St, Toronto, ON M3J 1N6',
+    location: 'Toronto, ON',
     start: 'February 2022',
-    end: 'Present',
+    end: 'April 2025',
     bullets: [
-      'Delivered exceptional customer service by addressing inquiries, resolving complaints, and ensuring a positive dining experience',
-      'Processed transactions accurately and efficiently using point-of-sale systems',
-      'Collaborated with team members to maintain a clean, organized, and welcoming environment',
-      'Demonstrated adaptability by quickly learning new processes and procedures in a fast-paced setting',
-      'Consistently met performance targets for speed of service and customer satisfaction',
+      'Delivered clear, efficient customer service—answering questions, resolving concerns, and keeping interactions respectful under time pressure',
+      'Processed cash, card, and POS transactions accurately during busy shifts',
+      'Prioritized tasks with teammates to maintain speed of service, cleanliness, and store operations',
+    ],
+  },
+]
+
+/** Substantial development work presented as experience (not paid employment) */
+export const technicalExperience = [
+  {
+    id: 'inventory-dev',
+    role: 'Full-Stack Developer (Team Project)',
+    company: 'Inventory Management System',
+    location: 'Academic / Portfolio',
+    // TODO: Add exact project dates if you want them shown
+    start: null,
+    end: null,
+    bullets: [
+      'Built catalog and stock workflows with ASP.NET Core MVC and PostgreSQL in a three-person team',
+      'Implemented role-based access, admin CRUD for products and categories, and search/filter controls',
+      'Coordinated schema and UI decisions so inventory status stayed clear for non-technical users',
+    ],
+  },
+  {
+    id: 'gameboxd-dev',
+    role: 'Mobile Developer',
+    company: 'GameBoxd (Capstone)',
+    location: 'Academic / Portfolio',
+    start: null,
+    end: null,
+    bullets: [
+      'Designed and implemented a React Native game-discovery app with browsing, detail views, and local favorites',
+      'Structured modular UI components and persistence with AsyncStorage for offline-friendly demos',
+      'Documented scope, wireframes, and next steps for API-backed accounts and shared lists',
+    ],
+  },
+  {
+    id: 'roblox-dev',
+    role: 'Gameplay Programmer',
+    company: 'train ur troops! (Roblox)',
+    location: 'Personal / Portfolio',
+    start: null,
+    end: null,
+    bullets: [
+      'Implemented client-server gameplay systems in Luau using RemoteEvents and reusable modules',
+      'Built shop economy, unit placement, and session UI with React-Roblox and Rojo workflows',
+      'Debugged multiplayer state and playtest feedback to keep the loop readable and fair',
     ],
   },
 ]
@@ -22,59 +78,19 @@ export const volunteerExperience = [
     role: 'Drummer (Church Services)',
     organization: 'Community church',
     summary:
-      'Supported weekly services by rehearsing with the music team and performing with consistency and professionalism.',
+      'Supported weekly services by rehearsing with the music team and performing with consistency.',
   },
   {
     id: 'food',
     role: 'Volunteer',
     organization: 'Community food drives',
-    summary:
-      'Assisted with sorting, packing, and distributing food to support local families and community outreach efforts.',
+    summary: 'Assisted with sorting, packing, and distributing food for local outreach.',
   },
   {
     id: 'web',
     role: 'Web Development Support',
     organization: 'Small businesses (community)',
     summary:
-      'Helped local small businesses with basic web updates and structure, focusing on clarity, navigation, and presentation.',
+      'Helped local small businesses with basic web updates focused on clarity, navigation, and presentation.',
   },
-]
-
-export const transferableSkills = [
-  {
-    title: 'Teamwork',
-    description:
-      'Coordinated with coworkers during busy shifts, shared tasks fairly, and supported training for new team members.',
-  },
-  {
-    title: 'Communication',
-    description:
-      'Explained menu options, resolved concerns calmly, and kept interactions clear and respectful under time pressure.',
-  },
-  {
-    title: 'Customer service',
-    description:
-      'Focused on positive experiences, listened actively, and followed up to ensure issues were addressed.',
-  },
-  {
-    title: 'Adaptability',
-    description:
-      'Learned updated procedures quickly and adjusted to changing priorities during peak service periods.',
-  },
-  {
-    title: 'Fast-paced environments',
-    description:
-      'Maintained accuracy and composure while managing multiple tasks, queues, and customer needs simultaneously.',
-  },
-]
-
-export const skillsList = [
-  'Communication',
-  'Problem-solving',
-  'Time management',
-  'Attention to detail',
-  'Customer service',
-  'Adaptability',
-  'Microsoft Office',
-  'Basic programming concepts (Python, Java, C++)',
 ]

@@ -1,71 +1,135 @@
-import { SectionHeading } from '../components/ui/SectionHeading'
+import { PageHeader } from '../components/ui/PageHeader'
 import { Card } from '../components/ui/Card'
-import { PlaceholderImage } from '../components/ui/PlaceholderImage'
+import { SkillGroup } from '../components/ui/SkillGroup'
 import { Reveal } from '../components/ui/Reveal'
-import { aboutTraits, biography, interests, personal } from '../data/personal'
+import { Seo } from '../components/ui/Seo'
+import { Button } from '../components/ui/Button'
+import { personal, biography, languages, interests, skillGroups } from '../data/personal'
+import { education, additionalCredentials } from '../data/education'
 
 export function About() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <SectionHeading
-        eyebrow="About me"
-        title="Profile & biography"
-        subtitle="Who I am as a student developer—grounded, creative, and serious about craft."
+    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
+      <Seo
+        title="About"
+        description="About Jon Adrian Alvaro — Computer Programming student, technical skills, education, and approach to building software."
+      />
+      <PageHeader
+        eyebrow="Profile"
+        title="About"
+        subtitle="A concise look at my background, education, and how I approach learning and problem solving."
       />
 
-      <div className="grid gap-12 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-start">
+      <div className="grid gap-10 lg:grid-cols-[200px_1fr] lg:gap-12">
         <Reveal>
-          <Card className="overflow-hidden p-0 ring-1 ring-inset ring-rose-950/30">
-            <PlaceholderImage
-              src={personal.assets.profilePhoto}
-              alt={`${personal.name} profile`}
-              label="Profile photo"
-              aspect="square"
-              className="rounded-none"
-            />
-            <div className="border-t border-line/60 bg-elevated/50 p-6 text-left">
-              <p className="font-display text-lg font-bold text-mist">{personal.name}</p>
-              <p className="mt-1 text-sm text-muted">{personal.location}</p>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-rose-300/70">Focus</p>
-              <ul className="mt-3 space-y-2">
-                {aboutTraits.map((t) => (
-                  <li key={t} className="flex items-start gap-2 text-sm text-muted">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-rose-500/70" aria-hidden />
-                    {t}
-                  </li>
+          <img
+            src={personal.assets.profilePhoto}
+            alt={`${personal.name} profile photo`}
+            width={200}
+            height={200}
+            className="mx-auto h-44 w-44 rounded-2xl border border-rose-500/20 object-cover object-top shadow-xl ring-1 ring-line sm:h-48 sm:w-48 lg:mx-0 lg:h-full lg:w-full lg:max-w-[200px]"
+          />
+        </Reveal>
+
+        <div className="space-y-10">
+          <Reveal>
+            <section>
+              <h2 className="font-display text-xl font-bold text-mist">Biography</h2>
+              {biography.split('\n\n').map((para) => (
+                <p key={para.slice(0, 24)} className="mt-3 max-w-prose text-sm leading-relaxed text-muted sm:text-base">
+                  {para}
+                </p>
+              ))}
+            </section>
+          </Reveal>
+
+          <Reveal delay={40}>
+            <section>
+              <h2 className="font-display text-xl font-bold text-mist">Education</h2>
+              <div className="mt-4 space-y-4">
+                {education.map((ed) => (
+                  <Card key={ed.id}>
+                    <h3 className="font-display text-lg font-bold text-mist">{ed.institution}</h3>
+                    <p className="mt-1 text-sm text-muted">
+                      {ed.program} {ed.credential}
+                      {ed.statusNote ? ` (${ed.statusNote})` : ''}
+                    </p>
+                    <p className="mt-1 text-sm text-dim">
+                      {ed.start} – {ed.end}
+                      {ed.location ? ` · ${ed.location}` : ''}
+                    </p>
+                    {ed.highlights?.length ? (
+                      <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted marker:text-rose-600/50">
+                        {ed.highlights.map((h) => (
+                          <li key={h}>{h}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </Card>
                 ))}
-              </ul>
-            </div>
-          </Card>
-        </Reveal>
+              </div>
+            </section>
+          </Reveal>
 
-        <Reveal delay={100}>
-          <div className="space-y-8 text-left">
-            {biography.split('\n\n').map((para, i) => (
-              <p key={i} className="text-base leading-relaxed text-muted md:text-[1.05rem]">
-                {para}
-              </p>
-            ))}
-          </div>
-        </Reveal>
+          <Reveal delay={60}>
+            <section>
+              <h2 className="font-display text-xl font-bold text-mist">Technical skills</h2>
+              <div className="mt-6 grid gap-8 sm:grid-cols-2">
+                {skillGroups.map((group) => (
+                  <SkillGroup key={group.title} title={group.title} items={group.items} />
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <section className="grid gap-8 sm:grid-cols-2">
+              <div>
+                <h2 className="font-display text-xl font-bold text-mist">Languages</h2>
+                <p className="mt-3 text-sm text-muted">{languages.join(' · ')}</p>
+              </div>
+              <div>
+                <h2 className="font-display text-xl font-bold text-mist">Interests</h2>
+                <ul className="mt-3 space-y-1 text-sm text-muted">
+                  {interests.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          </Reveal>
+
+          {additionalCredentials.length ? (
+            <Reveal delay={100}>
+              <section>
+                <h2 className="font-display text-xl font-bold text-mist">Additional Credentials</h2>
+                <p className="mt-2 max-w-prose text-sm text-muted">
+                  Relevant post-secondary credentials available on request or via the link below.
+                </p>
+                <ul className="mt-4 space-y-3">
+                  {additionalCredentials.map((c) => (
+                    <li
+                      key={c.file}
+                      className="flex flex-col gap-3 rounded-xl border border-line/80 bg-void/30 p-4 sm:flex-row sm:items-center sm:justify-between"
+                    >
+                      <div>
+                        <p className="font-semibold text-mist">{c.title}</p>
+                        <p className="text-sm text-muted">
+                          {c.issuer} · {c.year}
+                        </p>
+                        {c.detail ? <p className="mt-1 text-sm text-dim">{c.detail}</p> : null}
+                      </div>
+                      <Button as="a" href={c.file} variant="secondary" target="_blank" rel="noreferrer">
+                        View credential
+                      </Button>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+          ) : null}
+        </div>
       </div>
-
-      <Reveal>
-        <Card className="mt-14 text-left">
-          <h2 className="font-display text-lg font-bold text-mist">Interests</h2>
-          <p className="mt-2 text-sm text-dim">What keeps me building after class.</p>
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {interests.map((item) => (
-              <li
-                key={item}
-                className="rounded-full border border-rose-500/20 bg-rose-950/20 px-4 py-2 text-sm text-rose-100/85"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </Card>
-      </Reveal>
     </div>
   )
 }

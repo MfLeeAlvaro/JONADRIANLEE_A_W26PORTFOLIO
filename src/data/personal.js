@@ -1,87 +1,107 @@
 /**
- * Core personal info — edit paths when you add real image/PDF files.
+ * Core personal / contact info — single source of truth for the portfolio.
  */
 export const personal = {
   name: 'Jon Adrian Alvaro',
-  title: 'Computer Programming Student | Aspiring Software Developer',
+  role: 'Junior Software Developer',
+  eyebrow: 'Computer Programming Student · Software Developer',
   location: 'North York, Ontario',
   phone: '(647) 985-7073',
   email: 'jonadrianlee2004@gmail.com',
-  /** Public profile — Contact, Footer, Resume */
   githubUrl: 'https://github.com/MfLeeAlvaro',
-  /** This site’s repository — Home “source code” card */
   githubPortfolioRepoUrl: 'https://github.com/MfLeeAlvaro/JONADRIANLEE_A_W26PORTFOLIO',
   linkedinUrl: 'https://www.linkedin.com/in/dr-huge-768511339/',
   videoDemoUrl: 'https://youtu.be/UfKGkkIIE6w',
-  /** Static files under public/ */
   assets: {
     profilePhoto: '/assets/images/profile-photo.png',
-    resumePdf: '/assets/documents/Resume.docx.pdf',
-    transcriptPdf: '/assets/documents/transcript.pdf',
-    certificateFolder: '/assets/documents/certificates/',
+    resumePdf: '/assets/documents/Jon_Adrian_Alvaro_Resume.pdf',
+    portfolioQr: '/assets/images/portfolio-qr.png',
   },
-  /** Home hero — edit anytime */
-  heroLines: ['Computer Programming Student', 'Aspiring Software Developer'],
-  heroFocusLine: 'Building interactive systems, apps, and digital experiences.',
-  heroTagline:
-    'Calm under pressure, curious by default—I shape code the way I shape soundtracks: with patience, contrast, and intent. Software, games, and late-night builds are how I learn.',
+  heroSupporting:
+    'I build web applications, mobile experiences, game systems, and practical software projects using C#, Java, Python, C++, JavaScript, and Luau.',
+  heroIntro:
+    'Computer Programming student with hands-on experience building full-stack applications, mobile projects, game systems, and object-oriented software. I enjoy turning requirements into working features, debugging technical problems, and continuously improving the usability and reliability of my projects.',
+  seo: {
+    siteName: 'Jon Adrian Alvaro',
+    defaultTitle: 'Jon Adrian Alvaro | Junior Software Developer',
+    defaultDescription:
+      'Portfolio of Jon Adrian Alvaro, a Computer Programming student building web applications, mobile projects, game systems, and practical software solutions.',
+    siteUrl: 'https://jonadrianlee-a-w26-portfolio.vercel.app',
+    ogImage: '/assets/images/profile-photo.png',
+  },
 }
 
-export const aboutTraits = [
-  'Software & game development',
-  'Music & creative workflow',
-  'Intentional, atmospheric design',
-  'Team communication & adaptability',
+/** Strongest technologies verified from projects and coursework */
+export const techStack = [
+  'C#',
+  'ASP.NET Core',
+  'Java',
+  'Python',
+  'JavaScript',
+  'PostgreSQL',
+  'C++',
+  'React Native',
+  'Roblox Luau',
+  'Git / GitHub',
 ]
 
-export const professionalSummary =
-  'Motivated and detail-oriented individual with experience in customer service and a strong foundation in computer programming. Proven ability to communicate effectively, solve problems, and adapt to fast-paced environments. Currently pursuing a degree in Computer Programming to further develop technical and analytical skills.'
-
-export const biography = `I am a Computer Programming student at George Brown College with a passion for building reliable software and learning how technology solves real problems. My background in customer service at McDonald's strengthened my communication, teamwork, and ability to stay composed in fast-paced environments—skills I now apply when collaborating on code, debugging issues, and presenting technical ideas clearly.
-
-Outside the classroom, I explore game development, web development, music production, and data management. I enjoy breaking problems into smaller parts, experimenting with new tools, and shipping projects that I can iterate on over time. My goal is to grow into a well-rounded developer who can contribute thoughtfully to a team while continuously improving my craft.`
-
-export const careerPhilosophy = `I believe growth comes from consistent practice, curiosity, and constructive feedback. As a student developer, I focus on writing clear code, documenting my decisions, and learning from both successes and mistakes. I am motivated by the idea that software can improve everyday experiences—whether that means a smoother mobile app, a more efficient internal tool, or a creative project that brings people together.
-
-Looking ahead, I aim to combine my customer-focused mindset with strong technical fundamentals so I can build software that is not only functional but also understandable and maintainable. I am especially interested in opportunities where I can learn from experienced developers, contribute to real products, and deepen my skills in modern development workflows.`
-
-export const coverLetter = `Jon Adrian Alvaro
-North York, ON
-jonadrianlee2004@gmail.com | (647) 985-7073
-
-[Date]
-
-Hiring Manager
-[Company Name]
-[City, Province]
-
-Dear Hiring Manager,
-
-I am writing to express my interest in a Junior Software Developer / Developer Intern role. I am currently completing a Computer Programming diploma at George Brown College (expected April 2026), where I have built a strong foundation in programming fundamentals, problem-solving, and software development practices using languages such as Python, Java, and C++.
-
-Alongside my coursework, I have developed portfolio projects that span mobile development, ASP.NET Core web apps with PostgreSQL, Java game AI (Minimax), and Roblox game development. These projects helped me practice translating requirements into features, iterating based on feedback, and communicating technical progress in a clear, organized way.
-
-In addition to my technical studies, I have over two years of experience as a Customer Service Representative and Cashier at McDonald's. In that role, I consistently delivered positive customer experiences, processed transactions accurately, collaborated with teammates in a high-volume environment, and adapted quickly to new procedures. Those experiences strengthened skills that transfer directly to software teams: communication, accountability, time management, and staying detail-oriented under pressure.
-
-I am eager to contribute to [Company Name]'s work while continuing to grow as a developer. I would welcome the opportunity to discuss how my coursework, projects, and work experience align with your team's needs.
-
-Thank you for your time and consideration.
-
-Sincerely,
-Jon Adrian Alvaro`
-
-export const highlights = [
-  'George Brown College — Computer Programming (2023–2026, expected)',
-  'Hands-on coursework in Python, Java, C++, and software development lifecycle topics',
-  'Customer service experience with strong communication and teamwork',
-  'Portfolio projects: mobile apps, ASP.NET inventory systems, Java/AI games, and Roblox development',
+export const whatIBring = [
+  {
+    title: 'Software Development',
+    description:
+      'I ship working features across web, mobile, and game projects—structuring code clearly, iterating on feedback, and documenting decisions so others can follow the work.',
+  },
+  {
+    title: 'Problem Solving and Debugging',
+    description:
+      'I break problems into smaller steps, reproduce issues carefully, and use logs, tests, and systematic checks to find root causes instead of guessing.',
+  },
+  {
+    title: 'Communication and Teamwork',
+    description:
+      'Customer service and warehouse roles taught me to communicate clearly under pressure, coordinate with teammates, and stay accurate when priorities change quickly.',
+  },
 ]
+
+export const biography = `I study Computer Programming at George Brown College and build portfolio projects that span full-stack web apps, mobile interfaces, game AI, and multiplayer Roblox systems. Outside class, I explore game development, web development, and music production—disciplines that reinforce patience, iteration, and attention to detail.
+
+I am looking for junior developer, internship, IT, and technical support opportunities where I can contribute to real products, learn from experienced teammates, and keep improving how I write, debug, and explain software.`
 
 export const languages = ['English', 'Tagalog']
 
 export const interests = [
-  'Game development',
-  'Music production',
-  'Web development',
-  'Data management',
+  'Software and game development',
+  'Web and mobile interfaces',
+  'Music production and creative workflow',
+  'Clear documentation and maintainable code',
+]
+
+export const skillGroups = [
+  {
+    title: 'Languages',
+    items: ['C#', 'Java', 'Python', 'C++', 'JavaScript', 'Luau'],
+  },
+  {
+    title: 'Frameworks and Libraries',
+    items: ['ASP.NET Core', 'MVC', 'React Native', 'React-Roblox'],
+  },
+  {
+    title: 'Databases',
+    items: ['PostgreSQL', 'AsyncStorage'],
+  },
+  {
+    title: 'Tools and Platforms',
+    items: ['Git', 'GitHub', 'JetBrains Rider', 'Roblox Studio', 'Rojo', 'Microsoft Office'],
+  },
+  {
+    title: 'Concepts',
+    items: [
+      'Object-oriented programming',
+      'REST-style APIs',
+      'Client-server architecture',
+      'Role-based access control',
+      'Minimax search',
+      'Debugging and testing',
+    ],
+  },
 ]

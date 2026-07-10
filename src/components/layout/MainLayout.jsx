@@ -5,7 +5,7 @@ import { ScrollToTop } from './ScrollToTop'
 
 export function MainLayout() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-void text-mist">
+    <div id="top" className="relative flex min-h-screen flex-col bg-void text-mist">
       <div className="atmosphere atmosphere-vignette" aria-hidden />
       <div className="atmosphere atmosphere-grain" aria-hidden />
       <ScrollToTop />

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jonadrianlee-a-w26-portfolio.vercel.app/sitemap.xml

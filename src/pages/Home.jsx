@@ -1,165 +1,143 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/ui/Button'
 import { Card } from '../components/ui/Card'
 import { Reveal } from '../components/ui/Reveal'
-import { SectionDivider } from '../components/ui/SectionDivider'
-import { personal, highlights, professionalSummary } from '../data/personal'
+import { ProjectCard } from '../components/ui/ProjectCard'
+import { ProjectCaseStudy } from '../components/ui/ProjectCaseStudy'
+import { Seo } from '../components/ui/Seo'
+import { personal, techStack, whatIBring } from '../data/personal'
+import { featuredProjects } from '../data/projects'
 
 export function Home() {
+  const [active, setActive] = useState(null)
+
   return (
     <div>
-      {/* Cinematic hero */}
-      <section className="relative min-h-[88vh] overflow-hidden border-b border-line/40">
-        <div className="bg-grid-faint absolute inset-0 opacity-60" aria-hidden />
+      <Seo />
+
+      <section className="relative overflow-hidden border-b border-line/40">
+        <div className="bg-grid-faint absolute inset-0 opacity-50" aria-hidden />
         <div
-          className="pointer-events-none absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-rose-600/15 blur-[100px] animate-pulse-soft"
+          className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-rose-600/12 blur-[90px]"
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute -right-24 bottom-0 h-[28rem] w-[28rem] rounded-full bg-violet-600/10 blur-[120px] animate-drift"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute left-1/3 top-0 h-64 w-64 rounded-full bg-rose-950/30 blur-[80px] animate-drift-slow"
+          className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-rose-950/25 blur-[100px]"
           aria-hidden
         />
 
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:min-h-[88vh] lg:flex-row lg:items-center lg:gap-16 lg:py-28">
-          <Reveal className="flex shrink-0 justify-center lg:justify-start">
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 py-14 sm:px-6 sm:py-16 lg:flex-row lg:items-center lg:gap-14 lg:py-20">
+          <Reveal className="flex shrink-0 justify-center lg:order-2 lg:justify-end">
             <div className="relative">
               <div
-                className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-rose-500/30 via-transparent to-violet-600/20 opacity-80 blur-sm"
+                className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-rose-500/35 via-transparent to-rose-900/20 opacity-90 blur-[2px]"
                 aria-hidden
               />
               <img
                 src={personal.assets.profilePhoto}
-                alt={`${personal.name} — profile photo`}
-                width={200}
-                height={200}
-                className="relative h-44 w-44 rounded-2xl border border-line object-cover shadow-2xl shadow-black/60 ring-2 ring-rose-950/50 sm:h-48 sm:w-48"
+                alt={`${personal.name}, junior software developer based in ${personal.location}`}
+                width={176}
+                height={176}
+                className="relative h-40 w-40 rounded-2xl border border-rose-500/25 object-cover object-top shadow-2xl shadow-black/50 ring-1 ring-rose-950/60 sm:h-44 sm:w-44"
               />
             </div>
           </Reveal>
 
-          <div className="min-w-0 flex-1 text-left">
-            <p className="animate-fade-up font-display text-[0.7rem] font-semibold uppercase tracking-[0.4em] text-rose-300/75">
-              Academic portfolio · Developer in progress
+          <div className="min-w-0 flex-1 lg:order-1">
+            <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-rose-300/80">
+              {personal.eyebrow}
             </p>
-            <h1 className="animate-fade-up animation-delay-100 mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-mist sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-mist sm:text-5xl">
               {personal.name}
             </h1>
-            <div className="animate-fade-up animation-delay-200 mt-5 space-y-1.5">
-              {personal.heroLines.map((line) => (
-                <p key={line} className="font-display text-lg font-semibold text-rose-100/90 sm:text-xl">
-                  {line}
-                </p>
-              ))}
-            </div>
-            <p className="animate-fade-up animation-delay-300 mt-5 max-w-xl font-display text-base font-medium leading-snug text-muted sm:text-lg">
-              {personal.heroFocusLine}
+            <p className="mt-3 font-display text-lg font-semibold text-rose-100/90 sm:text-xl">{personal.role}</p>
+            <p className="mt-5 max-w-prose text-base leading-relaxed text-muted">{personal.heroSupporting}</p>
+            <p className="mt-4 max-w-prose text-sm leading-relaxed text-dim sm:text-[0.95rem]">
+              {personal.heroIntro}
             </p>
-            <p className="animate-fade-up animation-delay-400 mt-6 max-w-2xl border-l-2 border-rose-800/60 pl-5 text-sm leading-relaxed text-muted sm:text-base">
-              {personal.heroTagline}
-            </p>
-            <p className="animate-fade-up animation-delay-400 mt-6 max-w-2xl text-sm leading-relaxed text-dim sm:text-[0.95rem]">
-              {professionalSummary}
-            </p>
-            <div className="animate-fade-up animation-delay-400 mt-10 flex flex-wrap gap-4">
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button as={Link} to="/projects" variant="primary">
-                View projects
+                View Projects
               </Button>
-              <Button as={Link} to="/resume" variant="secondary">
-                Resume
+              <Button
+                as="a"
+                href={personal.assets.resumePdf}
+                variant="secondary"
+                download
+                target="_blank"
+                rel="noreferrer"
+              >
+                Download Resume
               </Button>
-              <Button as={Link} to="/contact" variant="ghost">
-                Contact
+              <Button as={Link} to="/contact" variant="link">
+                Contact Me
               </Button>
             </div>
           </div>
         </div>
+
+        <div className="relative mx-auto max-w-6xl border-t border-line/40 px-4 py-6 sm:px-6">
+          <p className="sr-only">Primary technologies</p>
+          <ul className="flex flex-wrap gap-2">
+            {techStack.map((tech) => (
+              <li
+                key={tech}
+                className="rounded-lg border border-line/80 bg-panel/50 px-3 py-1.5 text-xs font-medium text-muted sm:text-sm"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
-      <SectionDivider className="my-0 py-px" />
-
-      {/* Highlights */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <Reveal>
-          <h2 className="font-display text-2xl font-bold tracking-tight text-mist sm:text-3xl">Highlights</h2>
-          <p className="mt-3 max-w-2xl text-muted">Academic focus, technical foundation, and real-world customer experience.</p>
+          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-rose-300/80">
+                Selected work
+              </p>
+              <h2 className="mt-2 font-display text-2xl font-bold text-mist sm:text-3xl">Featured Projects</h2>
+            </div>
+            <Button as={Link} to="/projects" variant="ghost" className="self-start sm:self-auto">
+              All projects
+            </Button>
+          </div>
         </Reveal>
-        <ul className="mt-10 grid gap-5 sm:grid-cols-2">
-          {highlights.map((item, i) => (
-            <li key={i}>
-              <Reveal delay={i * 60}>
-                <Card hover className="h-full text-left">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-rose-500/20 bg-rose-950/35 text-rose-200">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <path
-                        d="M5 13l4 4L19 7"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                  <p className="mt-4 text-sm leading-relaxed text-muted">{item}</p>
-                </Card>
-              </Reveal>
-            </li>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project, i) => (
+            <Reveal key={project.id} delay={i * 60}>
+              <ProjectCard project={project} onOpenCaseStudy={setActive} />
+            </Reveal>
           ))}
-        </ul>
+        </div>
       </section>
 
-      <section className="border-y border-line/40 bg-surface/50">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <div className="grid gap-8 lg:grid-cols-2">
-            <Reveal>
-              <Card className="h-full">
-                <h2 className="font-display text-xl font-bold text-mist">Video demo</h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  Screen walkthrough of this portfolio and project highlights (hosted on YouTube).
-                </p>
-                <a
-                  href={personal.videoDemoUrl}
-                  className="prose-link mt-6 inline-flex items-center gap-2 text-sm font-semibold"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Watch video demo
-                  <span aria-hidden>→</span>
-                </a>
-              </Card>
-            </Reveal>
-            <Reveal delay={80}>
-              <Card className="h-full">
-                <h2 className="font-display text-xl font-bold text-mist">Source & repositories</h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  This portfolio’s codebase, plus my wider work on GitHub.
-                </p>
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <a
-                    href={personal.githubPortfolioRepoUrl}
-                    className="prose-link inline-flex items-center gap-2 text-sm font-semibold"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Portfolio repository
-                    <span aria-hidden>→</span>
-                  </a>
-                  <a
-                    href={personal.githubUrl}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-rose-200"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub profile
-                    <span aria-hidden>→</span>
-                  </a>
-                </div>
-              </Card>
-            </Reveal>
-          </div>
+      <ProjectCaseStudy project={active} onClose={() => setActive(null)} />
+
+      <section className="border-t border-line/40 bg-surface/40">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+          <Reveal>
+            <h2 className="font-display text-2xl font-bold text-mist sm:text-3xl">What I Bring</h2>
+            <p className="mt-3 max-w-prose text-muted">
+              Practical strengths from coursework, portfolio builds, and customer-facing work.
+            </p>
+          </Reveal>
+          <ul className="mt-10 grid gap-5 md:grid-cols-3">
+            {whatIBring.map((item, i) => (
+              <li key={item.title}>
+                <Reveal delay={i * 50}>
+                  <Card className="h-full">
+                    <h3 className="font-display text-lg font-bold text-mist">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">{item.description}</p>
+                  </Card>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </div>
