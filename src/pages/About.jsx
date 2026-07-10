@@ -20,14 +20,14 @@ export function About() {
         subtitle="A concise look at my background, education, and how I approach learning and problem solving."
       />
 
-      <div className="grid gap-10 lg:grid-cols-[200px_1fr] lg:gap-12">
-        <Reveal>
+      <div className="grid gap-10 lg:grid-cols-[12.5rem_1fr] lg:items-start lg:gap-12">
+        <Reveal className="lg:sticky lg:top-24">
           <img
             src={personal.assets.profilePhoto}
             alt={`${personal.name} profile photo`}
             width={200}
             height={200}
-            className="mx-auto h-44 w-44 rounded-2xl border border-rose-500/20 object-cover object-top shadow-xl ring-1 ring-line sm:h-48 sm:w-48 lg:mx-0 lg:h-full lg:w-full lg:max-w-[200px]"
+            className="mx-auto h-44 w-44 rounded-2xl border border-rose-500/20 object-cover object-top shadow-xl ring-1 ring-line sm:h-48 sm:w-48 lg:mx-0 lg:h-[12.5rem] lg:w-[12.5rem]"
           />
         </Reveal>
 
