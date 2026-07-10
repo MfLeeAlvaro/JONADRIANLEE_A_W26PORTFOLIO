@@ -8,7 +8,7 @@ export function ResumePage() {
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
       <Seo
         title="Resume"
-        description="Download or view the resume of Jon Adrian Alvaro — junior software developer and Computer Programming student."
+        description="Download or view the resume of Jon Adrian Alvaro — junior software developer and Computer Programming graduate."
       />
       <PageHeader
         eyebrow="Documents"

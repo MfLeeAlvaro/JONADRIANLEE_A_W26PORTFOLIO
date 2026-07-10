@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { PageHeader } from '../components/ui/PageHeader'
 import { ExperienceItem } from '../components/ui/ExperienceItem'
 import { Card } from '../components/ui/Card'
@@ -50,8 +51,7 @@ export function Experience() {
                 <div>
                   <h3 className="font-display text-lg font-bold text-mist">{diploma.institution}</h3>
                   <p className="mt-1 text-sm text-muted">
-                    {diploma.program} {diploma.credential}
-                    {diploma.statusNote ? ` (${diploma.statusNote})` : ''}
+                    {diploma.program} — {diploma.credential}
                   </p>
                   <p className="mt-1 text-sm text-dim">
                     {diploma.start} – {diploma.end}
@@ -71,14 +71,7 @@ export function Experience() {
                   ) : null}
                 </div>
                 {diplomaCredential?.file ? (
-                  <Button
-                    as="a"
-                    href={diplomaCredential.file}
-                    variant="secondary"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="shrink-0 self-start"
-                  >
+                  <Button as={Link} to="/diploma" variant="secondary" className="shrink-0 self-start">
                     View Diploma
                   </Button>
                 ) : null}

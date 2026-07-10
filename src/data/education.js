@@ -2,16 +2,15 @@ export const education = [
   {
     id: 'gbc',
     institution: 'George Brown College',
-    program: 'Computer Programming',
-    // Official MyCreds diploma PDF is dated April 24, 2026; resume PDF still lists Expected — keep wording aligned with resume until updated.
-    credential: 'Diploma',
+    program: 'Computer Programming and Analysis',
+    credential: 'Ontario College Advanced Diploma',
     location: 'Toronto, ON',
     start: 'September 2023',
     end: 'April 2026',
-    statusNote: 'Expected', // TODO: Change to null or remove once resume is updated to match conferred diploma
+    statusNote: null,
     highlights: [
-      'Coursework in programming fundamentals, problem-solving, and software development',
-      'Practical skills in Python, Java, C++, and related development concepts',
+      'Completed coursework in programming fundamentals, problem-solving, and software development',
+      'Built practical skills in Python, Java, C++, C#, and related development concepts',
     ],
   },
 ]

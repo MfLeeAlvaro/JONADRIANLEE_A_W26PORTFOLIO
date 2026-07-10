@@ -4,7 +4,7 @@
 export const personal = {
   name: 'Jon Adrian Alvaro',
   role: 'Junior Software Developer',
-  eyebrow: 'Computer Programming Student · Software Developer',
+  eyebrow: 'Computer Programming Graduate · Software Developer',
   location: 'North York, Ontario',
   phone: '(647) 985-7073',
   email: 'jonadrianlee2004@gmail.com',
@@ -20,12 +20,12 @@ export const personal = {
   heroSupporting:
     'I build web applications, mobile experiences, game systems, and practical software projects using C#, Java, Python, C++, JavaScript, and Luau.',
   heroIntro:
-    'Computer Programming student with hands-on experience building full-stack applications, mobile projects, game systems, and object-oriented software. I enjoy turning requirements into working features, debugging technical problems, and continuously improving the usability and reliability of my projects.',
+    'Computer Programming graduate with hands-on experience building full-stack applications, mobile projects, game systems, and object-oriented software. I enjoy turning requirements into working features, debugging technical problems, and continuously improving the usability and reliability of my projects.',
   seo: {
     siteName: 'Jon Adrian Alvaro',
     defaultTitle: 'Jon Adrian Alvaro | Junior Software Developer',
     defaultDescription:
-      'Portfolio of Jon Adrian Alvaro, a Computer Programming student building web applications, mobile projects, game systems, and practical software solutions.',
+      'Portfolio of Jon Adrian Alvaro, a Computer Programming graduate building web applications, mobile projects, game systems, and practical software solutions.',
     siteUrl: 'https://jonadrianlee-a-w26-portfolio.vercel.app',
     ogImage: '/assets/images/profile-photo.png',
   },
@@ -63,7 +63,7 @@ export const whatIBring = [
   },
 ]
 
-export const biography = `I study Computer Programming at George Brown College and build portfolio projects that span full-stack web apps, mobile interfaces, game AI, and multiplayer Roblox systems. Outside class, I explore game development, web development, and music production—disciplines that reinforce patience, iteration, and attention to detail.
+export const biography = `I graduated from George Brown College with an Ontario College Advanced Diploma in Computer Programming and Analysis. I build portfolio projects that span full-stack web apps, mobile interfaces, game AI, and multiplayer Roblox systems. Outside of school, I explore game development, web development, and music production—disciplines that reinforce patience, iteration, and attention to detail.
 
 I am looking for junior developer, internship, IT, and technical support opportunities where I can contribute to real products, learn from experienced teammates, and keep improving how I write, debug, and explain software.`
 
